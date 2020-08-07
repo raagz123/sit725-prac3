@@ -4,7 +4,7 @@
             app.use(express.static(__dirname+ '/public'));
 
             // function to return deposit based on name
-            let returDeposit=function(clientName){
+            let returDeposit=function(id){
                 let accounts = [
                     {"id":30, "name":"John","deposit":5 },
                     {"id":20, "name":"alex","deposit":50 },
@@ -13,7 +13,7 @@
 
                 let found=-1;
                 for(let i=0;i<accounts.length;i++){
-                    if(accounts[i].name==clientName){
+                    if(accounts[i].id==id){
                         found=i;
                         return res=accounts[i].deposit;
                     }
@@ -37,12 +37,12 @@
 
             // end point for retrieving deposit values of array based on name
             app.get('/accounts',function(request,response){
-                let name=(request.query.name);
-                let deposit=returDeposit(name);
-                response.send('Given name:'+name + ' Deposit:'+deposit);
+                let id=(request.query.id);
+                let deposit=returDeposit(id);
+                response.send('Given Id:'+id + ' Deposit:'+deposit);
 
             })
-            
+
             // HD task homework
             // end point to for retreiving deposit based on given id from the linked list.
             app.get('/accountFromLL',function(request,response){
