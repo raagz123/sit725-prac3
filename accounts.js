@@ -1,7 +1,6 @@
 const express=require('express')
 let app=express()
 
-app.use(express.static(__dirname+ '/public'));
 
 // function to return deposit based on id
 let returDeposit=function(id){
@@ -33,4 +32,4 @@ app.get('/accounts',function(request,response){
     
 
 // Start the server on port 3000
-app.listen(8000)
+app.listen(4000)
